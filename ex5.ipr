@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="InspectionProjectProfileManager">
+    <profile version="1.0">
+      <option name="myName" value="Project Default" />
+    </profile>
+    <version value="1.0" />
+  </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ex5.iml" filepath="$PROJECT_DIR$/ex5.iml" />
+    </modules>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+  </component>
+  <component name="libraryTable">
+    <library name="Ex5">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/Implemented/Ex5.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="jogl lib">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/gluegen-rt.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/gluegen-rt-natives-macosx-universal.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/jogl-all.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/jogl-all-natives-macosx-universal.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+  </component>
+</project>

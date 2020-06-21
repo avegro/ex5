@@ -2,7 +2,11 @@ package edu.cg.models;
 
 import com.jogamp.opengl.GL2;
 
+import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.glu.GLUquadric;
 import edu.cg.algebra.Point;
+import edu.cg.models.Car.Materials;
+import edu.cg.models.Car.Specification;
 
 public class BoundingSphere implements IRenderable {
 	private double radius = 0.0;
@@ -27,19 +31,33 @@ public class BoundingSphere implements IRenderable {
 	 * @return true if the spheres intersects, and false otherwise
 	 */
 	public boolean checkIntersection(BoundingSphere s) {
-		// TODO: Check if two spheres intersect.
-		return false;
+		double dist = center.dist(s.getCenter());
+		double otherRadius = s.getRadius();
+		return (dist < otherRadius + this.radius);
 	}
 
 	public void translateCenter(double dx, double dy, double dz) {
 		// TODO: Translate the sphere center by (dx,dy,dz).
+		Point newCenter = new Point(dx+center.x, dy + center.y, dz + center.z);
+		this.setCenter(newCenter);
 	}
 
 	@Override
 	public void render(GL2 gl) {
 		// TODO: Render a sphere with the given radius and center.
 		// NOTE : Use the specified color when rendering.
+		gl.glPushMatrix();
+		GLU glu = new GLU();
+		GLUquadric quad = glu.gluNewQuadric();
+		float[] toFloatColor = new float[3];
+		for(int i = 0; i < 3; i++){
+			toFloatColor[i] = (float)(color[i]);
+		}
+		Materials.SetMetalMaterial(gl, toFloatColor);
+		glu.gluSphere(quad, radius, 25, 25);
+		gl.glPopMatrix();
 	}
+
 
 	@Override
 	public void init(GL2 gl) {

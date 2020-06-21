@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.glu.GLUquadric;
+import edu.cg.algebra.Point;
 import edu.cg.models.BoundingSphere;
 import edu.cg.models.IIntersectable;
 import edu.cg.models.IRenderable;
@@ -46,7 +49,10 @@ public class Front implements IRenderable, IIntersectable {
 		// where:
 		// s1 - sphere bounding the car front
 		LinkedList<BoundingSphere> res = new LinkedList<BoundingSphere>();
-
+		double xVal = (Specification.B_LENGTH + Specification.C_LENGTH + Specification.F_LENGTH)/2;
+		Point temp = new Point(0.2, 0.2, 0.5);
+		BoundingSphere s1 = new BoundingSphere(0.1, temp);
+		res.add(s1);
 		return res;
 	}
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.jogamp.opengl.GL2;
 
+import edu.cg.algebra.Point;
 import edu.cg.models.BoundingSphere;
 import edu.cg.models.IIntersectable;
 import edu.cg.models.IRenderable;
@@ -70,7 +71,10 @@ public class Center implements IRenderable, IIntersectable {
 		// where:
 		// s1 - sphere bounding the car front
 		LinkedList<BoundingSphere> res = new LinkedList<BoundingSphere>();
-
+		BoundingSphere s1 = new BoundingSphere(0.01, new Point(0.01,0,0));
+		res.add(s1);
 		return res;
+
+
 	}
 }

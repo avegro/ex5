@@ -22,14 +22,27 @@ public class FrontBumber implements IRenderable {
 		gl.glPushMatrix();
 		double bumpLength = Specification.F_BUMPER_LENGTH;
 		// Render hood - Use Red Material.
-		float[] green = {0,255,2};
+		float[] green = {0,255,0};
 		Materials.SetMetalMaterial(gl,green);
-		gl.glTranslated(-bumpLength / 2.0 + Specification.F_BUMPER_LENGTH/2 + Specification.TIRE_RADIUS*2 + 0.02, -0.03, 0.02 - Specification.PAIR_OF_WHEELS_ROD_DEPTH/2 - Specification.TIRE_DEPTH / 2 );
+		gl.glTranslated(-bumpLength / 2.0 + Specification.F_BUMPER_LENGTH/2 + Specification.TIRE_RADIUS*2 + 0.02, -0.04, 0.02 - Specification.PAIR_OF_WHEELS_ROD_DEPTH/2 - Specification.TIRE_DEPTH / 2 );
 		bumperWing1.render(gl);
 		gl.glTranslated(-bumpLength / 2.0 + Specification.F_BUMPER_LENGTH / 2.0, 0, Specification.PAIR_OF_WHEELS_ROD_DEPTH + Specification.TIRE_DEPTH - 0.02);
 		bumperWing2.render(gl);
 		gl.glTranslated(0, 0, -Specification.PAIR_OF_WHEELS_ROD_DEPTH/2 -Specification.TIRE_DEPTH/2 +0.01);
 		bumperBox.render(gl);
+		//Materials.SetRedMetalMaterial(gl);
+		float[] blue = {0,0,255};
+		Materials.SetMetalMaterial(gl,blue);
+
+		gl.glTranslated(0,0.035,0.14);
+		GLU glu = new GLU();
+		GLUquadric quad = glu.gluNewQuadric();
+		glu.gluSphere(quad, 0.035,10,10);
+
+		gl.glTranslated(0,0,0 - Specification.F_BUMPER_LENGTH - 0.13);
+		GLU glu2 = new GLU();
+		glu.gluSphere(quad, 0.035,10,10);
+
 
 		gl.glPopMatrix();
 	}

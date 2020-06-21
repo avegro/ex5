@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.glu.GLUquadric;
 import edu.cg.algebra.Point;
 import edu.cg.models.BoundingSphere;
 import edu.cg.models.IIntersectable;
@@ -38,7 +40,18 @@ public class Back implements IRenderable, IIntersectable {
 		gl.glTranslated(-Specification.B_LENGTH / 2.0 + 0.5 * Specification.S_LENGTH,
 				0.5 * (Specification.B_HEIGHT_1 + Specification.B_HEIGHT_2), 0.0);
 		spoiler.render(gl);
+		gl.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+		float[] exhaustPipeColor = {0,6,230};
+		Materials.SetMetalMaterial(gl, exhaustPipeColor);
+		gl.glTranslated(-0.025,-0.1,-0.1);
+		GLU glu = new GLU();
+		GLUquadric quad = glu.gluNewQuadric();
+		glu.gluCylinder(quad,0.02,0.02,0.1,10,10);
+		gl.glTranslated(0.08,0.0,0);
+		glu.gluCylinder(quad,0.02,0.02,0.1,10,10);
 		gl.glPopMatrix();
+
+
 	}
 
 	@Override
@@ -53,7 +66,9 @@ public class Back implements IRenderable, IIntersectable {
 		// where:
 		// s1 - sphere bounding the car front
 		LinkedList<BoundingSphere> res = new LinkedList<BoundingSphere>();
-		BoundingSphere s1 = new BoundingSphere(0.05, new Point(0,0.01,0));
+		Point temp = new Point(-0.44, 0.056, 0.0);
+		BoundingSphere s1 = new BoundingSphere(0.42, temp);
+		s1.setSphereColore3d(0,0,255);
 		res.add(s1);
 		return res;
 	}

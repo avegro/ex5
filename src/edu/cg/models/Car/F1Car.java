@@ -59,7 +59,8 @@ public class F1Car implements IRenderable, IIntersectable {
 		// All spheres should be adapted so that they are place relative to
 		// the car model coordinate system.
 		LinkedList<BoundingSphere> res = new LinkedList<BoundingSphere>();
-		BoundingSphere s1 = new BoundingSphere(0.01, new Point(0,0,0));
+		BoundingSphere s1 = new BoundingSphere(0.9, new Point(0,0,0));
+		s1.setSphereColore3d(0,0,0);
 		res.add(s1);
 		BoundingSphere temp = this.carFront.getBoundingSpheres().get(0);
 		res.add(temp);

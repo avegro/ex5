@@ -53,8 +53,9 @@ public class BoundingSphere implements IRenderable {
 		for(int i = 0; i < 3; i++){
 			toFloatColor[i] = (float)(color[i]);
 		}
-		Materials.SetMetalMaterial(gl, toFloatColor);
-		glu.gluSphere(quad, radius, 25, 25);
+		gl.glTranslated(this.center.x, this.center.y, this.center.z);
+		Materials.SetMetalMaterial(gl,toFloatColor);
+		glu.gluSphere(quad, radius, 10, 10);
 		gl.glPopMatrix();
 	}
 

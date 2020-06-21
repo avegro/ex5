@@ -49,9 +49,9 @@ public class Front implements IRenderable, IIntersectable {
 		// where:
 		// s1 - sphere bounding the car front
 		LinkedList<BoundingSphere> res = new LinkedList<BoundingSphere>();
-		double xVal = (Specification.B_LENGTH + Specification.C_LENGTH + Specification.F_LENGTH)/2;
-		Point temp = new Point(0.2, 0.2, 0.5);
-		BoundingSphere s1 = new BoundingSphere(0.1, temp);
+		Point temp = new Point(0.43, 0.0, 0.0);
+		BoundingSphere s1 = new BoundingSphere(0.38, temp);
+		s1.setSphereColore3d(255,0,0);
 		res.add(s1);
 		return res;
 	}
